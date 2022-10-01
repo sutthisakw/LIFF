@@ -126,7 +126,7 @@
       const queryString = decodeURIComponent(window.location.search);
       const params = new URLSearchParams(queryString);
       if (params.get("param") !== null) {
-        document.getElementById("param").append(params.get("param"));
+        document.getElementById("scanCode").append(params.get("param"));
       }
     }
     main()
