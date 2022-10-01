@@ -123,10 +123,10 @@
       // getFriendship()
       // createUniversalLink()
 
-      const queryString = decodeURIComponent(window.location.search);
-      const params = new URLSearchParams(queryString);
+      const queryString = decodeURIComponent(window.location.search)
+      const params = new URLSearchParams(queryString)
       if (params.get("param") !== null) {
-        document.getElementById("scanCode").append(params.get("param"));
+        document.getElementById("scanCode")[0].innerHTML = (params.get("param"))
       }
     }
     main()
