@@ -42,7 +42,7 @@
     console.log("Hello World!")
   </script> -->
 
-  <!-- <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script> -->
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
     function createUniversalLink() {
     }
@@ -75,12 +75,23 @@
     }
 
     function getEnvironment() {
+      document.getElementById("os").append(liff.getOS()) // getOS คือ LIFF ที่เปิดอยู่นั้นเปิดจาก android / ios / web
+      document.getElementById("language").append(liff.getLanguage()) // getLanguage คือ client default ที่ใช้อยู่เป็นภาษาอะไร
+      document.getElementById("version").append(liff.getVersion()) // getVersion คือ แสดงค่า sdk liff ที่ใช้งานอยู่ว่าเป็น version อะไร
+      document.getElementById("accessToken").append(liff.getAccessToken()) // getAccessToken ไม่ใช้ที่ channel แต่เป็น teporaries ที่ใช้ verify acction ในระบบ back-end
+      document.getElementById("isInClient").append(liff.isInClient()) // isInClient คือ เป็นตัวบอกว่า LIFF ที่เปิดใช้งานนั้นเปิดจาก app line หรือ browser
+      if (liff.isInClient()){
+        document.getElementById("btnLogOut").style.display = "none"
+      } else {
+        document.getElementById("btnMsg").style.display = "none"
+        document.getElementById("btnScanCode").style.display = "none"
+        document.getElementById("btnClose").style.display = "none"
+      }
     }
 
     async function main() {
-      alert("LINE Developers x Skooldio")
-      await liff.init({ liffId: "YOUR-LIFF-ID" })
-      // getEnvironment()
+      await liff.init({ liffId: "1657519995-XNWmWdGl" })
+      getEnvironment()
       // getUserProfile()
       // getContext()
       // getFriendship()
