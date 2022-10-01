@@ -32,7 +32,7 @@
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
   <button onclick="openWindow()">Open Window</button>
-  <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
+  <button id="btnScanCode" onclick="scanCodeV2()">Scan Code</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
@@ -56,8 +56,8 @@
     function closed() {
     }
 
-    async function scanCode() {
-      const result = await liff.scanCode()
+    async function scanCodeV2() {
+      const result = await liff.scanCodeV2()
       document.getElementById("scanCode").append(result.value) // แสดงผลค่าที่อ่านจาก QRCode
     }
 
@@ -76,8 +76,8 @@
         await liff.sendMessages([
           {
             "type": "sticker",
-            "stickerId": 10855,
-            "packageId": 789
+            "stickerId": 2,
+            "packageId": 1
           }
         ])
         alert("Sent Message success")
