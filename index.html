@@ -59,7 +59,7 @@
     async function scanCodeV2() {
       try {
         const result = await liff.scanCodeV2();
-        document.querySelector('#scanCodeV2').innerHTML.append = result.value;
+        document.querySelector('#scanCodeV2').innerHTML = ('Code: '.result.value);
       } catch(error) {
         console.log('scanCodeV2',error);
       }
@@ -120,7 +120,7 @@
     }
 
     async function main() {
-      await liff.init({ liffId: "1657519995-XNWmWdGl" })
+      await liff.init({ liffId: "1657519995-XNWmWdGl" }) // LIFF ID
       getEnvironment()
       getUserProfile()
       getContext()
