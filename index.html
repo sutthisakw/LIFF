@@ -122,12 +122,16 @@
 
     async function main() {
       await liff.init({ liffId: "1657519995-XNWmWdGl" }) // LIFF ID
-      getEnvironment()
-      getUserProfile()
-      getContext()
-      // getFriendship()
-      // createUniversalLink()
-
+      document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+      if (liff.isLoggedIn()) { // check login ก่อน ถึงจะใช้งานฟังก์ชันที่เกี่ยวข้องได้ ซึ่งหากใช้บน line จะ login ให้อัตโนมัติอยู่แล้ว
+        getEnvironment()
+        getUserProfile()
+        getContext()
+        getFriendship()
+        // createUniversalLink()
+      } else {
+        liff.login() // ถ้าเป็น external browser จะแสดงหน้า login
+      }
     }
     main()
   </script>
