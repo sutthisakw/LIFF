@@ -54,12 +54,13 @@
     }
 
     function closed() {
+      liff.closeWindow()
     }
 
     async function scanCodeV2() {
       try {
         const result = await liff.scanCodeV2();
-        document.querySelector('#scanCodeV2').innerHTML = ('Code: '.result.value);
+        document.querySelector('#scanCodeV2').innerHTML = result.value;
       } catch(error) {
         console.log('scanCodeV2',error);
       }
