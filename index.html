@@ -42,9 +42,15 @@
     console.log("Hello World!")
   </script> -->
 
-  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   <script>
     function createUniversalLink() {
+      const link1 = liff.permanentLink.createUrl()
+      document.getElementById("universalLink1").append(link1)
+
+      liff.permanentLink.setExtraQueryParam('param=9')
+      const link2 = liff.permanentLink.createUrl()
+      document.getElementById("universalLink2").append(link2)
     }
 
     async function shareMsg() {
@@ -136,7 +142,7 @@
         getUserProfile()
         getContext()
         getFriendship()
-        // createUniversalLink()
+        createUniversalLink()
       } else {
         liff.login() // ถ้าเป็น external browser จะแสดงหน้า login
       }
