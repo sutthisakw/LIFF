@@ -32,8 +32,7 @@
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
   <button onclick="openWindow()">Open Window</button>
-  <!-- <button id="btnScanCode" onclick="window.location='http://line.me/R/nv/QRCodeReader'">Scan Code</button> -->
-  <button id="btnScanCode" onclick="scanCodeV2()">Scan Code</button>
+  <button id="btnScanCode" onclick="window.location='http://line.me/R/nv/QRCodeReader'">Scan Code</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
@@ -57,16 +56,10 @@
     function closed() {
     }
 
-    async function scanCodeV2() {
+    // async function scanCodeV2() {
     //   const result = await liff.scanCodeV2()
     //   document.getElementById("scanCode").append(liff.scanCodeV2().value) // แสดงผลค่าที่อ่านจาก QRCode
-
-    const queryString = decodeURIComponent(window.location.search)
-    const params = new URLSearchParams(queryString)
-      if (params.get("param") !== null) {
-        document.getElementById("scanCode")[0].innerHTML = (params.get("param"))
-      }
-    }
+    // }
 
     function openWindow() {
       liff.openWindow({
@@ -130,7 +123,11 @@
       // getFriendship()
       // createUniversalLink()
 
-
+      const queryString = decodeURIComponent(window.location.search)
+      const params = new URLSearchParams(queryString)
+      if (params.get("param") !== null) {
+        document.getElementById("scanCode").append(params.get("param"))
+      }
     }
     main()
   </script>
